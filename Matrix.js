@@ -55,7 +55,7 @@ class Matrix{
             throw "Variable must be Matrix!";
         }
     }
-    
+
     static subtract(a,b){
         let result = new Matrix(a.rows,a.cols);
         for(var i=0; i< a.cols;i++){
@@ -143,6 +143,7 @@ class Matrix{
     }
 }
 
+/*
 a = new Matrix(3,2);
 a.matrix = [[8, 3], [2, 4], [3, 6]];
 b = new Matrix(2,3);
@@ -151,3 +152,4 @@ c = a.multiply(b);
 a.print();
 b.print();
 c.print();
+*/
