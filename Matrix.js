@@ -3,14 +3,9 @@ class Matrix{
         //Create matrix
         this.rows = rows;
         this.cols = cols;
-        this.matrix = new Array(rows);
-        for(let i = 0;i<this.rows;i++){
-            this.matrix[i] = new Array(cols);
-            for(let j = 0; j< this.cols; j++){
-                this.matrix[i][j] = Math.random();
-            }
-        }
         this.math = new MatrixMath(this);
+        this.matrix = new Array(rows).fill(Array(cols).fill(0));
+        this.map(Math.random);
     }
     //Returns copy of matrix
     copy(){
