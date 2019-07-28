@@ -10,6 +10,7 @@ class Matrix{
                 this.matrix[i][j] = Math.random();
             }
         }
+        this.math = new MatrixMath(this);
     }
     //Returns copy of matrix
     copy(){
@@ -56,7 +57,7 @@ class Matrix{
         }
     }
 
-    static subtract(a,b){
+    static sub(a,b){
         let result = new Matrix(a.rows,a.cols);
         for(var i=0; i< a.cols;i++){
             for(var j=0; j<a.rows;j++){
@@ -125,21 +126,26 @@ class Matrix{
     }
 
     static map(matrix,func){
-        for(let i = 0; i < matrix.rows; i++){
-            for(let j = 0; j < matrix.cols; j++){
-                let val = matrix.matrix[i][j];
-                matrix.matrix[i][j] = func(val);
-            }
-        }
+        let m = matrix.copy();
+        m.map(func);
+        return m;
     }
 
     map(func){
-        for(let i = 0; i < this.rows; i++){
-            for(let j = 0; j < this.cols; j++){
-                let val = this.matrix[i][j];
-                this.matrix[i][j] = func(val);
-            }
-        }
+        this.matrix = this.math.maph(func);
+    }
+    
+}
+
+class MatrixMath{
+    constructor(parent){
+        this.parent = parent;
+    }
+    maph(func){
+        let a = this.parent.matrix;
+        return a.map((y,i)=>{
+            return a[i].map(func);
+        });
     }
 }
 
