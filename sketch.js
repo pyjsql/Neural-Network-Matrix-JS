@@ -3,11 +3,19 @@ a.matrix = [[1,2,3],[4,5,6]];
 let b = new Matrix(3,2);
 b.matrix = [[1,2],[3,4],[5,6]]
 let c = a.multiply(b);
-c.print();
+
+let nn = new NeuralNetwork(2,2,1,2);
+
 function setup() {
   // put setup code here
   createCanvas(640,480);
   
+  //Neural network test codes
+  
+  let input = [1,0];
+  let output = nn.feedforward(input);
+  output.print();
+
 }
 
 function draw() {
